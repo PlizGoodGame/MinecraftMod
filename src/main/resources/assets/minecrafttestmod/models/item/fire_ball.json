@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "minecraft:item/magma_cream"
+    "layer0": "minecrafttestmod:item/fire_ball"
   }
 }

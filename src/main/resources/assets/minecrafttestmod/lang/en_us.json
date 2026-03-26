@@ -1,0 +1,7 @@
+{
+  "item.minecrafttestmod.fire_ball": "Fireball",
+  "item.minecrafttestmod.frost_bolt": "Frost Bolt",
+  "entity.minecrafttestmod.fire_ball": "Fireball",
+  "entity.minecrafttestmod.frost_bolt": "Frost Bolt",
+  "itemGroup.minecrafttestmod.example_tab": "Minecraft Test Mod"
+}
