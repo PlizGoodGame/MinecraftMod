@@ -1,8 +1,10 @@
 package com.github.PlizGoodGame.items;
 
 import com.github.PlizGoodGame.MinecraftTestMod;
+import com.github.PlizGoodGame.entities.ModEntities;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -29,6 +31,14 @@ public class ModItems {
                     .stacksTo(1)
                     .rarity(Rarity.COMMON)
             ));
+
+    public static final RegistryObject<Item> AMOGUS_SPAWN_EGG = ITEMS.register("amogus_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.AMOGUS,
+                    0xF01111,
+                    0x1A1FDF,
+                    new Item.Properties()
+            )
+    );
 
 
     public static void register(IEventBus eventBus) {

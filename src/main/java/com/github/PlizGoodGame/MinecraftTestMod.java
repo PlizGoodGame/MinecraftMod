@@ -1,5 +1,6 @@
 package com.github.PlizGoodGame;
 
+import com.github.PlizGoodGame.entities.AmogusEntity;
 import com.github.PlizGoodGame.entities.ModEntities;
 import com.github.PlizGoodGame.items.ModItems;
 import com.mojang.logging.LogUtils;
@@ -15,6 +16,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -47,6 +49,7 @@ public class MinecraftTestMod
                     .displayItems((parameters, output) -> {
                         output.accept(ModItems.FIRE_BALL.get());
                         output.accept(ModItems.FROST_BOLT.get());
+                        output.accept(ModItems.AMOGUS_SPAWN_EGG.get());
                     })
                     .build()
     );
@@ -56,12 +59,14 @@ public class MinecraftTestMod
     {
         IEventBus modEventBus = context.getModEventBus();
 
-        CREATIVE_MODE_TAB.register(modEventBus);
+
         ModEntities.register(modEventBus);
         ModItems.register(modEventBus);
+        CREATIVE_MODE_TAB.register(modEventBus);
 
         // Подписываемся на события мода
         modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(this::registerAttributes);
         modEventBus.addListener(this::addCreative);
 
         // Подписываемся на события игры (сервер, игроки и т.д.)
@@ -78,6 +83,10 @@ public class MinecraftTestMod
     // Добавляем наши предметы на вкладки творческого режима
     private void addCreative(@NotNull BuildCreativeModeTabContentsEvent event)
     {
+    }
+
+    public void registerAttributes(@NotNull EntityAttributeCreationEvent event) {
+        event.put(ModEntities.AMOGUS.get(), AmogusEntity.createAttributes().build());
     }
 
 }
