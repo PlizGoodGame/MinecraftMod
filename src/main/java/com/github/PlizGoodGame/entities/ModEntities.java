@@ -1,5 +1,7 @@
 package com.github.PlizGoodGame.entities;
 
+import com.github.PlizGoodGame.MinecraftTestMod;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -9,7 +11,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITIES =
-            DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, "minecrafttestmod");
+            DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, MinecraftTestMod.MOD_ID);
 
     public static final RegistryObject<EntityType<FireBallEntity>> FIRE_BALL =
             ENTITIES.register("fire_ball",
@@ -26,6 +28,12 @@ public class ModEntities {
                             .clientTrackingRange(4)
                             .updateInterval(4)
                             .build("frost_bolt"));
+
+    public static final RegistryObject<EntityType<AmogusEntity>> AMOGUS =
+            ENTITIES.register("amogus",
+                    () -> EntityType.Builder.of(AmogusEntity::new, MobCategory.MONSTER)
+                        .sized(1.0f, 1.5f)  // Width, Height
+                        .build(new ResourceLocation(MinecraftTestMod.MOD_ID, "amogus").toString()));
 
     public static void register(IEventBus eventBus) {
         ENTITIES.register(eventBus);
