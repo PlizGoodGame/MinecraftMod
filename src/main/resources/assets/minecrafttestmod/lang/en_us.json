@@ -1,7 +1,13 @@
 {
   "item.minecrafttestmod.fire_ball": "Fireball",
   "item.minecrafttestmod.frost_bolt": "Frost Bolt",
+  "item.minecrafttestmod.elemental_lightning_bolt": "Lightning Bolt",
   "entity.minecrafttestmod.fire_ball": "Fireball",
   "entity.minecrafttestmod.frost_bolt": "Frost Bolt",
-  "itemGroup.minecrafttestmod.example_tab": "Minecraft Test Mod"
+  "entity.minecrafttestmod.elemental_lightning_bolt": "Lightning Bolt",
+  "itemGroup.minecrafttestmod.example_tab": "Minecraft Test Mod",
+  "effect.minecrafttestmod.chill": "Chill",
+  "effect.minecrafttestmod.chill.description": "Slows action speed",
+  "effect.minecrafttestmod.shock": "Shock",
+  "effect.minecrafttestmod.shock.description": "Increases damage taken from all sources"
 }

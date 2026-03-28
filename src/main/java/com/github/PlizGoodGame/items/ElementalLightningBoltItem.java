@@ -1,7 +1,6 @@
 package com.github.PlizGoodGame.items;
 
-import com.github.PlizGoodGame.entities.FireBallEntity;
-import com.github.PlizGoodGame.entities.FrostBoltEntity;
+import com.github.PlizGoodGame.entities.ElementalLightningBoltEntity;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -14,11 +13,11 @@ import net.minecraft.world.level.Level;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class FrostBoltItem extends Item {
+public class ElementalLightningBoltItem extends Item {
 
-    private static final int COOLDOWN_TICKS = 20;
+    private static final int COOLDOWN_TICKS = 15;
 
-    public FrostBoltItem(Properties properties) {
+    public ElementalLightningBoltItem(Properties properties) {
         super(properties);
     }
 
@@ -27,20 +26,21 @@ public class FrostBoltItem extends Item {
         ItemStack itemstack = player.getItemInHand(hand);
 
         if (!level.isClientSide) {
-            FrostBoltEntity frostBolt = new FrostBoltEntity(level, player);
+            // Создаем огненный шар
+            ElementalLightningBoltEntity lightningBolt = new ElementalLightningBoltEntity(level, player);
 
             // Настраиваем полет
-            frostBolt.shootFromRotation(
+            lightningBolt.shootFromRotation(
                     player,
                     player.getXRot(),
                     player.getYRot(),
                     0.0F,      // Погрешность по оси X
-                    3F,      // Скорость полета
-                    1.0F       // Разброс
+                    5F,      // Скорость полета
+                    0F       // Разброс
             );
 
             // Добавляем шар в мир
-            level.addFreshEntity(frostBolt);
+            level.addFreshEntity(lightningBolt);
         }
 
         // Устанавливаем кулдаун

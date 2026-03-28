@@ -25,6 +25,7 @@ public class ClientModEvents
     {
         event.registerEntityRenderer(ModEntities.FIRE_BALL.get(), FireBallRenderer::new);
         event.registerEntityRenderer(ModEntities.FROST_BOLT.get(), FrostBoltRenderer::new);
+        event.registerEntityRenderer(ModEntities.ELEMENTAL_LIGHTNING_BOLT.get(), ElementalLightningBoltRenderer::new);
         event.registerEntityRenderer(ModEntities.AMOGUS.get(), AmogusRenderer::new);
         //LOGGER.info("Рендерер для огненного шара зарегистрирован");
     }

@@ -32,6 +32,12 @@ public class ModItems {
                     .rarity(Rarity.COMMON)
             ));
 
+    public static final RegistryObject<Item> ELEMENTAL_LIGHTNING_BOLT = ITEMS.register("elemental_lightning_bolt",
+            () -> new ElementalLightningBoltItem(new Item.Properties()
+                    .stacksTo(1)
+                    .rarity(Rarity.COMMON)
+            ));
+
     public static final RegistryObject<Item> AMOGUS_SPAWN_EGG = ITEMS.register("amogus_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.AMOGUS,
                     0xF01111,

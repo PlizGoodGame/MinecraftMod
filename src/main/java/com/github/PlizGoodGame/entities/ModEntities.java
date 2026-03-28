@@ -29,6 +29,14 @@ public class ModEntities {
                             .updateInterval(4)
                             .build("frost_bolt"));
 
+    public static final RegistryObject<EntityType<ElementalLightningBoltEntity>> ELEMENTAL_LIGHTNING_BOLT =
+            ENTITIES.register("elemental_lightning_bolt",
+                    () -> EntityType.Builder.<ElementalLightningBoltEntity>of(ElementalLightningBoltEntity::new, MobCategory.MISC)
+                            .sized(0.25f, 0.25f)
+                            .clientTrackingRange(4)
+                            .updateInterval(4)
+                            .build("elemental_lightning_bolt"));
+
     public static final RegistryObject<EntityType<AmogusEntity>> AMOGUS =
             ENTITIES.register("amogus",
                     () -> EntityType.Builder.of(AmogusEntity::new, MobCategory.MONSTER)

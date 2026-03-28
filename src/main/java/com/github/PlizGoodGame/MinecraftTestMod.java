@@ -1,5 +1,6 @@
 package com.github.PlizGoodGame;
 
+import com.github.PlizGoodGame.effects.ModEffects;
 import com.github.PlizGoodGame.entities.AmogusEntity;
 import com.github.PlizGoodGame.entities.ModEntities;
 import com.github.PlizGoodGame.items.ModItems;
@@ -49,6 +50,7 @@ public class MinecraftTestMod
                     .displayItems((parameters, output) -> {
                         output.accept(ModItems.FIRE_BALL.get());
                         output.accept(ModItems.FROST_BOLT.get());
+                        output.accept(ModItems.ELEMENTAL_LIGHTNING_BOLT.get());
                         output.accept(ModItems.AMOGUS_SPAWN_EGG.get());
                     })
                     .build()
@@ -62,6 +64,7 @@ public class MinecraftTestMod
 
         ModEntities.register(modEventBus);
         ModItems.register(modEventBus);
+        ModEffects.register(modEventBus);
         CREATIVE_MODE_TAB.register(modEventBus);
 
         // Подписываемся на события мода

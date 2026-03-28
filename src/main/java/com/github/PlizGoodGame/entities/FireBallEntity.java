@@ -60,9 +60,15 @@ public class FireBallEntity extends ThrowableItemProjectile {
         Entity entity = result.getEntity();
 
         // Наносим урон
-        entity.hurt(this.damageSources().onFire(), 3.0F);
-        // Поджигаем на 5 секунд
-        entity.setSecondsOnFire(5);
+        if (entity instanceof LivingEntity livingEntity) {
+            if (livingEntity.isOnFire()) {
+                entity.hurt(damageSources().onFire(), 5.0F);
+            }
+            else {
+                entity.hurt(damageSources().onFire(), 2.0F);
+            }
+            entity.setSecondsOnFire(5);
+        }
 
         // Эффекты при попадании
         if (!this.level().isClientSide) {
